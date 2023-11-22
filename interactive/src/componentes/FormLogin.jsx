@@ -16,7 +16,7 @@ export const LoginForm = () => {
             </div>
             <button type="submit"><a href="../Admin/dashboardPH.html">Ingresar</a></button>
         </form>
-        <p class="under-form">No tienes cuenta? <a href="signupPH.html" class="links-bottom">Regístrate</a></p>
+        <p class="under-form">No tienes cuenta? <a href="registro" class="links-bottom">Regístrate</a></p>
     </div>
   );
 };

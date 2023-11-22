@@ -5,6 +5,7 @@ import { LoginPH } from './views/Users/loginPH';
 // import { Login } from './pages/Login';
 import "./assets/css/style.css"
 import React from 'react'
+import { SignUpPH } from './views/Users/signupPH';
 
 
 function App() {
@@ -12,11 +13,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route index element={<LoginPH />} />
-        <Route path='/inicio' element={<LoginPH />} />
+        <Route index element={<Homepage />} />
+        <Route path='/inicio' element={<Homepage />} />
         <Route path='/login' element={<LoginPH />} />
-        {/* <Route path='/registro' element={<Register />} />
-        <Route path='/login' element={<Login />} /> */}
+        <Route path='/registro' element={<SignUpPH />} />
       </Routes>
     </Router>
   );

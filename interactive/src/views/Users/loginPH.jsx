@@ -5,7 +5,6 @@ import { Header } from "../../componentes/Header";
 import { Footer } from "../../componentes/Footer";
 import { Barra } from "../../componentes/BarraMitad";
 import { LoginForm } from "../../componentes/FormLogin";
-import homeimage from "../../assets/images/home-image.png";
 import "bootstrap/dist/css/bootstrap.css";
 
 

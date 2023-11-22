@@ -36,7 +36,7 @@ export const Navbar = () => {
       </div>
 
       <div className="ficha">
-        <a href="/inicio">
+        <a href="/login">
           <img src={fichaSesion} alt=""></img>
         </a>
       </div>
