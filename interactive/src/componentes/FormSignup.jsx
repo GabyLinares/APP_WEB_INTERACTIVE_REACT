@@ -2,69 +2,106 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Link, Switch, useHistory } from "react-router-dom";
 
 export const SignupForm = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    pass: '',
+    confirmPass: '',
+    nombre: '',
+    apellido: '',
+  });
 
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-        confirmPassword: "",
-        nombre: "",
-        apellido: "",
-      });
-    
-      const handleChange = (e) => {
-        const { id, value } = e.target;
-        setFormData((prevData) => ({
-          ...prevData,
-          [id]: value,
-        }));
-      };
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-    
-        // You can access the form data in the 'formData' object
-        console.log("Form data submitted:", formData);
-    
-        // Here, you can add your logic to handle the form data as needed,
-        // such as saving it to local storage or performing any other actions.
-    
-        // For example, you can save the data to local storage:
-        localStorage.setItem("signupData", JSON.stringify(formData));
-      };
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Requerimientos de contraseña
+    const { pass, confirmPass } = formData;
+    const isPasswordValid = validatePassword(pass);
+    const doPasswordsMatch = pass === confirmPass;
+
+    if (!isPasswordValid) {
+      alert('La contraseña debe tener al menos 8 caracteres y contener al menos una letra mayúscula, una letra minúscula y un número.');
+      return;
+    }
+
+    if (!doPasswordsMatch) {
+      alert('Las contraseñas no coinciden.');
+      return;
+    }
+
+    console.log('Form data submitted:', formData);
+    localStorage.setItem('userData', JSON.stringify(formData));
+  };
+
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    return passwordRegex.test(password);
+  };
 
   return (
     <div className="full-wrapper">
       <div className="header-form">
         <h3 className="descripcion-barra">Bienvenid@ a Interactive Light Mosaico</h3>
       </div>
-      <form className="signup" onChange={handleChange}>
+      <form className="signup">
         <div className="input-group-signup">
           <label htmlFor="email">
             Email
-            <input id="email" type="email" placeholder="ejemplo@email.com" className="input-signup" />
+            <input
+              id="email"
+              type="email"
+              placeholder="ejemplo@email.com"
+              className="input-signup"
+              onChange={handleChange}
+            />
           </label>
           <label htmlFor="pass">
             Contraseña
-            <input id="pass" type="password" className="input-signup" />
+            <input
+              id="pass"
+              type="password"
+              className="input-signup"
+              onChange={handleChange}
+            />
           </label>
           <label htmlFor="confirmPass">
             Confirma tu contraseña
-            <input id="confirmPass" type="password" className="input-signup" />
+            <input
+              id="confirmPass"
+              type="password"
+              className="input-signup"
+              onChange={handleChange}
+            />
           </label>
           <label htmlFor="nombre">
             Nombre
-            <input id="nombre" type="text" className="input-signup" />
+            <input
+              id="nombre"
+              type="text"
+              className="input-signup"
+              onChange={handleChange}
+            />
           </label>
           <label htmlFor="apellido">
             Apellido
-            <input id="apellido" type="text" className="input-signup" />
+            <input
+              id="apellido"
+              type="text"
+              className="input-signup"
+              onChange={handleChange}
+            />
           </label>
-          {/* <label htmlFor="remember" className="remember">
-            <input id="remember" type="checkbox" />
-            Recuerdame
-          </label> */}
         </div>
-        <button type="submit" onClick={handleSubmit}>Registrarse</button>
+        <button type="submit" onClick={handleSubmit}>
+          Registrarse
+        </button>
       </form>
       <p className="under-form">
         Ya tienes cuenta? <a href="login" className="links-bottom">Ingresa</a>
