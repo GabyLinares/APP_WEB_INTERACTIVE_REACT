@@ -33,7 +33,7 @@ export const LoginForm = () => {
           loginData.pass === savedPassword
         ) {
           console.log("Login exitoso!");
-          navigate("/registro");
+          navigate("/registro"); //REDIRECCIÓN AL DASHBOARD
         } else {
           console.log("Login fallido. Credenciales invalidas.");
           console.log("Email usado:", loginData.email);

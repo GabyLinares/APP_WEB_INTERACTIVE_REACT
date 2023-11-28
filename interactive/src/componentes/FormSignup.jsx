@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Link, Switch, useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const SignupForm = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: '',
     pass: '',
@@ -38,6 +40,7 @@ export const SignupForm = () => {
 
     console.log('Form data submitted:', formData);
     localStorage.setItem('userData', JSON.stringify(formData));
+    navigate("/login"); // REDIRECCIÓN AL DASHBOARD
   };
 
   const validatePassword = (password) => {
