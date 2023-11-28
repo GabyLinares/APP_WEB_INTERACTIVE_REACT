@@ -10,11 +10,16 @@
     --piel1: #F9D5A8;
 }
 
-body {
+body, .loginpage {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+.full-wrap {
+    display: flex;
+    flex-direction: row;
 }
 
 .header {
@@ -62,6 +67,8 @@ body {
     text-align: left;
     margin-top: auto;
     width: 100%;
+    /* position: fixed;
+    bottom: 0; */
 }
 
 .descripcion-header {
@@ -357,6 +364,7 @@ button[type="submit"]:hover {
     margin: 20px auto;
     width: 800px;
     border-radius: 10px;
+    
 
 }
 
@@ -365,11 +373,16 @@ button[type="submit"]:hover {
 }
 
 .button-obj {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
     background-color: #01B6B1;
     width: 250px;
     height: 35px;
     border-radius: 10px;
     text-align: center;
+    margin-top: 1em;
 }
 
 .button-obj p {

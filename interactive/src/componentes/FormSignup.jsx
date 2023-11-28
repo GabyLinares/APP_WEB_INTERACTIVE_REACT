@@ -40,7 +40,7 @@ export const SignupForm = () => {
 
     console.log('Form data submitted:', formData);
     localStorage.setItem('userData', JSON.stringify(formData));
-    navigate("/login"); // REDIRECCIÓN AL DASHBOARD
+    navigate("/dashboard"); // REDIRECCIÓN AL DASHBOARD
   };
 
   const validatePassword = (password) => {

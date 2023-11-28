@@ -33,17 +33,19 @@ export const LoginForm = () => {
           loginData.pass === savedPassword
         ) {
           console.log("Login exitoso!");
-          navigate("/registro"); //REDIRECCIÓN AL DASHBOARD
+          navigate("/dashboard"); //REDIRECCIÓN AL DASHBOARD
         } else {
           console.log("Login fallido. Credenciales invalidas.");
           console.log("Email usado:", loginData.email);
           console.log("Contraseña usada:", loginData.pass);
+          alert('Login fallido. Credenciales invalidas.');
         }
       } else {
         console.log("El formato de las credenciales no es válido.");
       }
     } else {
       console.log("No hay credenciales registradas, por favor regístrese");
+      alert('No hay credenciales registradas, por favor regístrese');
     }
   };
 
