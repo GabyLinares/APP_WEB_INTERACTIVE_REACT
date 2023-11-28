@@ -9,13 +9,13 @@ export const Navbar = () => {
   return (
     <div className="nav-bar">
       <div className="ficha">
-        <a href="#">
+        <a href="/inicio">
           <img src={fichaInicio} alt=""></img>
         </a>
       </div>
 
       <div className="ficha">
-        <a href="#">
+        <a href="/catalogo">
           <img src={fichaCatalogo} alt=""></img>
         </a>
       </div>
