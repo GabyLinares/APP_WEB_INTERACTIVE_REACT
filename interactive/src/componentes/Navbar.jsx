@@ -15,7 +15,7 @@ export const Navbar = () => {
       </div>
 
       <div className="ficha">
-        <a href="/catalago">
+        <a href="/catalogo">
           <img src={fichaCatalogo} alt=""></img>
         </a>
       </div>

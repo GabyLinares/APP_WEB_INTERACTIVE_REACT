@@ -608,9 +608,10 @@ button[type="submit"]:hover {
 
 .respuesta {
     margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 10px;}
 /* CATALOG PAGE */
-.catalog{
+
+.catalog {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columnas por fila */
 }
@@ -716,7 +717,7 @@ button[type="submit"]:hover {
 }
 .product-detail-image img{
     background-color: var(--morado2);
-    width: 50%;
+    width: 40%;
     margin-top: 5%;
     border-radius: 25% 1%;
     border-width: 10px;
@@ -769,4 +770,4 @@ button[type="submit"]:hover {
     margin-left: 10%;
     background-color: var(--morado3);
     color: white;
-} }
+} 
