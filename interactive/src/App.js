@@ -12,7 +12,15 @@ import { UserMPH } from './views/Admin/userManagement';
 import { UserMPHedit } from './views/Admin/userMEdit';
 import { FAQ } from './views/Users/FAQ';
 import { ContactPH } from './views/Users/contactoPH';
+import { Catalogo } from './views/Inventory/catalog';
+import { Element } from './views/Inventory/element';
+import { Edition } from './views/Inventory/editable';
+import { NotFound } from './views/notFound';
+import { NewElem } from './views/Inventory/newelem';
 
+
+//Pendejada para que corra en el mac de juanma:
+//sudo chmod +x node_modules/.bin/react-scripts
 
 function App() {
 
@@ -20,6 +28,7 @@ function App() {
     <Router>
       <Routes>
         <Route index element={<Homepage />} />
+        <Route path='*' element={<NotFound/>}/>
         <Route path='/inicio' element={<Homepage />} />
         <Route path='/login' element={<LoginPH />} />
         <Route path='/registro' element={<SignUpPH />} />
@@ -31,6 +40,10 @@ function App() {
         <Route path='/FAQ' element={<FAQ />} />
         <Route path='/contacto' element={<ContactPH />} />
         {/* <Route path='*' element={<NotFound />} /> */}
+        <Route path='/catalogo' element={<Catalogo/>} />
+        <Route path='/catalogo/:id' element={<Element/>} />
+        <Route path='/catalogo/:id/edition' element={<Edition/>} />
+        <Route path='/catalogo/new' element={<NewElem/>}/>
       </Routes>
     </Router>
   );

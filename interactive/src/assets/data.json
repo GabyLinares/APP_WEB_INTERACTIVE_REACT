@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "name": "Tobogán",
+        "description": "Tuberías donde la emoción de tanto pequeños como grandes se ve llevada al límite aprovechando la ayuda de la gravedad.",
+        "url": 0
+    },
+    {
+        "id": 1,
+        "name": "Arcade",
+        "description": "Una selección de videojuegos de arcade y clásicos competitivos para que tanto pequeños y grandes puedan divertirse",
+        "url": 1
+    },
+    {
+        "id": 2,
+        "name": "Piscina de Pelotas",
+        "description": "Un tsunami de diversión en el que los pequeños pueden disfrutar con sus amigos o hacer unos nuevos, sin riesgo de accidentes o de un tiburón nadando.",
+        "url": 2
+    },
+    {
+        "id": 3,
+        "name": "Etesech",
+        "description": "Elpepe",
+        "url": 2
+    }
+]
