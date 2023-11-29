@@ -10,6 +10,7 @@ import { Catalogo } from './views/Inventory/catalog';
 import { Element } from './views/Inventory/element';
 import { Edition } from './views/Inventory/editable';
 import { NotFound } from './views/notFound';
+import { NewElem } from './views/Inventory/newelem';
 
 
 //Pendejada para que corra en el mac de juanma:
@@ -28,6 +29,7 @@ function App() {
         <Route path='/catalogo' element={<Catalogo/>} />
         <Route path='/catalogo/:id' element={<Element/>} />
         <Route path='/catalogo/:id/edition' element={<Edition/>} />
+        <Route path='/catalogo/new' element={<NewElem/>}/>
       </Routes>
     </Router>
   );

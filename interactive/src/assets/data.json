@@ -16,5 +16,11 @@
         "name": "Piscina de Pelotas",
         "description": "Un tsunami de diversión en el que los pequeños pueden disfrutar con sus amigos o hacer unos nuevos, sin riesgo de accidentes o de un tiburón nadando.",
         "url": 2
+    },
+    {
+        "id": 3,
+        "name": "Etesech",
+        "description": "Elpepe",
+        "url": 2
     }
 ]

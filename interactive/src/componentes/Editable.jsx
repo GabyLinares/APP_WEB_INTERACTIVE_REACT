@@ -30,6 +30,7 @@ export const Editable = ({id, titulo, imgURL, text}) => {
                     </div>
                     <div class="product-edit-field">
                         <textarea type="text" rows="8" cols="50">{text}</textarea>
+                        <a href={`/catalogo/${id}`}><img src={edit}></img></a>
                     </div>
                 </div>
                 

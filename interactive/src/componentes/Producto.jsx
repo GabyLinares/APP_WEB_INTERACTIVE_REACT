@@ -3,22 +3,30 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Element } from "../views/Inventory/element";
 
-import Atracciones from "../assets/data.json";
+import data from "../assets/data.json";
 
 import edit from "../assets/images/fichaedit.svg";
 import borrar from "../assets/images/fichadelete.svg";
 
 export const Producto = ({id, titulo, imgURL, action}) => {
-    const navigate = useNavigate(); 
-    function Borrar({id}){
-        Atracciones.splice({id},1);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        setItems(data);
+    }, []);
+
+    const deleteItem = ({id}) => {
+        data.splice(data.findIndex((item) => item.id === 2), 1);
+    };
+    const handleDelete = ({id}) =>{
+        alert(`${id}`);
     }
     function Buttons({display, id}){
         if(display){
             return(
                 <div class="product-buttons">
                     <a class="product-btn" href={`/catalogo/${id}/edition`}><img src={edit} alt=""></img></a>
-                    <button class="product-btn"><img src={borrar} alt=""></img></button>
+                    <button class="product-btn" onClick={() => deleteItem({id})}><img src={borrar} alt=""></img></button>
                 </div>
             );
         }
