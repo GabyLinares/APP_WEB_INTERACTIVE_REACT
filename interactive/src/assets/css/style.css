@@ -552,3 +552,60 @@ button[type="submit"]:hover {
     width: 500px;
     color: #FFFFFF;
 }
+
+
+.wrapper {
+    /* background-color: #3C1363; */
+    display: flex;
+    flex-direction: column;
+}
+
+.image-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.image-wrapper img {
+    width: 80px;
+    height: 80px;
+    justify-self:center;
+    align-self: center;
+    margin-right: 10px;
+}
+
+.image-par img {
+    transform: rotate(90deg);
+}
+
+.pregunta-obj {
+    background-color:#3C1363;
+    color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.pregunta-obj:first-child {
+    margin-top: 20px;
+}
+
+.pregunta-obj:last-child {
+    margin-bottom: 20px;
+}
+
+.pregunta-wrapper {
+    background-color: #8D39C0;
+    width: fit-content;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.respuesta {
+    margin-left: 10px;
+    margin-right: 10px;
+}

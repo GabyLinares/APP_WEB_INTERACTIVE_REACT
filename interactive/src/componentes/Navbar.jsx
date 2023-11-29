@@ -9,19 +9,19 @@ export const Navbar = () => {
   return (
     <div className="nav-bar">
       <div className="ficha">
-        <a href="#">
+        <a href="/inicio">
           <img src={fichaInicio} alt=""></img>
         </a>
       </div>
 
       <div className="ficha">
-        <a href="#">
+        <a href="/catalago">
           <img src={fichaCatalogo} alt=""></img>
         </a>
       </div>
 
       <div className="ficha">
-        <a href="#">
+        <a href="/contacto">
           <img
             src={fichaContacto}
             alt=""
@@ -30,7 +30,7 @@ export const Navbar = () => {
       </div>
 
       <div className="ficha">
-        <a href="#">
+        <a href="/FAQ">
           <img src={fichaFAQ} alt=""></img>
         </a>
       </div>
