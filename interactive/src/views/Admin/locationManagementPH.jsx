@@ -7,25 +7,74 @@ import { Barra } from "../../componentes/BarraMitad";
 import "bootstrap/dist/css/bootstrap.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
-library.add(faTrash, faEdit);
+import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { nanoid } from 'nanoid';
+import { LocationList } from "../../componentes/LocationList";
+library.add(faTrash, faPlus);
 
 
 export const LocationMPH = () => {
 
   const [userName, setUserName] = useState("");
 
+    useEffect(() => {
+        const savedUserData = localStorage.getItem("userData");
+
+        if (savedUserData) {
+            const userDataObject = JSON.parse(savedUserData);
+            const { nombre } = userDataObject;
+
+            setUserName(nombre);
+        }
+    }, []);
+
+  const [LocationName, setLocationName] = useState("");
+
   useEffect(() => {
-    const savedUserData = localStorage.getItem("userData");
+    const savedLocationData = localStorage.getItem("locationData");
 
-    if (savedUserData) {
-      const userDataObject = JSON.parse(savedUserData);
-      const { nombre } = userDataObject;
+    if (savedLocationData) {
+      const locationDataObject = JSON.parse(savedLocationData);
+      const { nombre } = locationDataObject;
 
-      setUserName(nombre);
+      setLocationName(nombre);
     }
   }, []);
+  // DATOS QUEMADOS
+  const [locations, setLocations] = useState([
+    {
+        id: nanoid(),
+        name: "Piscina de Pelotas",
+        details: "Piscina de pelotas con tema de dinusaurio",
+        provider: "",
+    },
+    {
+        id: nanoid(),
+        name: "Luces Interactivas",
+        details: "Ubicado en el Eden",
+        provider: "",
+    }
+]);
 
+// MÉTODO DE AÑADIR ESPACIO
+const addLocation = (id, name, details, provider) => {
+    const newLocation = {
+        id: nanoid(),
+        name: name,
+        details: details,
+        provider: provider,
+    };
+
+    const newLocations = [...locations, newLocations];
+    setLocations(newLocations);
+
+};
+
+// MÉTODO PARA BORRAR ESPACIO
+  const deleteLocation = (id) => {
+    const newLocations = locations.filter((location) => location.id !== id);
+    setLocations(newLocations);
+  };
   return (
     <div className="loginpage">
       <ReactTitle title="Gestión de espacios" />
@@ -61,64 +110,13 @@ export const LocationMPH = () => {
           </div>
         </div>
 
-        <div className="section-wrapper">
-          <div className="obj-wrapper">
-            <div className="user-obj">
-              <div className="info">
-                <div className="title-wrapper">
-                  <p id="titulo_info_espacios">Piscina de Pelotas</p>
-                </div>
-                <span id="titulo_info_espacios">Detalles</span>
-                <span id="detalles_content">Piscina de pelotas, tema de dinosaurio</span>
-                <span id="titulo_info_espacios">Proveedor</span>
-                <span id="proveedor_content"> </span>
-              </div>
-            </div>
-            <div className="user-obj-footer">
-              <button className="borrar" style={{ fontSize: '24px', color: 'red' }}><FontAwesomeIcon icon={faTrash} /></button>
-              <button className="editar" style={{ fontSize: '24px', color: 'green' }}><FontAwesomeIcon icon={faEdit} /></button>
-            </div>
-          </div>
+        
+        <LocationList
+          locations={locations}
+          handleAddLocation={addLocation}
+          handleDeleteLocation={deleteLocation} />
 
-          <div className="obj-wrapper">
-            <div className="user-obj">
-              <div className="info">
-                <div className="title-wrapper">
-                  <p id="titulo_info_espacios">Luces Interactivas</p>
-                </div>
-                <span id="titulo_info_espacios">Detalles</span>
-                <span id="detalles_content">Ubicado en el Eden</span>
-                <span id="titulo_info_espacios">Proveedor</span>
-                <span id="proveedor_content"> </span>
-              </div>
-            </div>
-            <div className="user-obj-footer">
-              <button className="borrar" style={{ fontSize: '24px', color: 'red' }}><FontAwesomeIcon icon={faTrash} /></button>
-              <button className="editar" style={{ fontSize: '24px', color: 'green' }}><FontAwesomeIcon icon={faEdit} /></button>
-            </div>
-          </div>
-
-          <div className="obj-wrapper">
-            <div className="user-obj">
-              <div className="info">
-                <div className="title-wrapper">
-                  <p id="titulo_info_espacios">Laberinto</p>
-                </div>
-                <span id="titulo_info_espacios">Detalles</span>
-                <span id="detalles_content">En mantenimiento</span>
-                <span id="titulo_info_espacios">Proveedor</span>
-                <span id="proveedor_content"> </span>
-              </div>
-            </div>
-            <div className="user-obj-footer">
-              <button className="borrar" style={{ fontSize: '24px', color: 'red' }}><FontAwesomeIcon icon={faTrash} /></button>
-              <button className="editar" style={{ fontSize: '24px', color: 'green' }}><FontAwesomeIcon icon={faEdit} /></button>
-            </div>
-          </div>
-        </div>
       </div>
-
-
       <Footer />
     </div>
   );
